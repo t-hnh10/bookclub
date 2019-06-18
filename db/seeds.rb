@@ -24,4 +24,4 @@ gaiman.books.create(title: "Anansi Boys")
 kastrup.books.create(title: "Brief Peek Beyond")
 
 nin.books.create(title: "Little Birds")
-nin.books.create(title: "Delta of Venus")heinlein.books.create(title: "Stranger in a Strange Land")
+nin.books.create(title: "Delta of Venus")

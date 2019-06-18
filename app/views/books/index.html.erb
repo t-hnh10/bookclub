@@ -1,0 +1,7 @@
+<h1>Books</h1>
+<%if @books%>
+    <% @books.each do |book|%>
+        <p><%=link_to book.title, book_path(book) %></p>
+        <p><%=book.author.name %></p>
+    <%end%>
+<%end%>
