@@ -1,0 +1,6 @@
+<h1 class="heading">Authors</h1>
+
+<% @authors&.each do |author|%>
+    <p><%= author.name%></p>
+    <%= render "books_for_author", :author => author%>
+<%end%>

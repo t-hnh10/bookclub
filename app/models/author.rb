@@ -8,4 +8,8 @@ class Author < ApplicationRecord
     def self.ordered_by_last_name
         return Author.order(:last_name)
     end
+
+    def books_ordered_by_title
+        return books.order(:title)
+    end
 end
