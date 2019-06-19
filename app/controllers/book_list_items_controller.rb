@@ -1,5 +1,6 @@
 class BookListItemsController < ApplicationController
+    before_action :authenticate_user!
     def index
-        @books = BookListItem.books_for_current_user(current_user)
+        @books = current_user.books
     end
 end
