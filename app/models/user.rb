@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :book_list_items
   has_many :books, through: :book_list_items
+
+  def name
+    return username ? username : email
+  end
 end
