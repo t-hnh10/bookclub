@@ -10,10 +10,16 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render "shared/topnav" %>
-    <%= render "shared/sidenav"%>
-    <%= yield %>
+    <section class="container">
+      <div class="header">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= render "shared/topnav" %>
+        <%= render "shared/sidenav"%>
+      </div>
+      <div class="main">
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>

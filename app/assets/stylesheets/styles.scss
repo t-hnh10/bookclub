@@ -1,0 +1,25 @@
+.header {
+    grid-area: header;
+    display: flex;
+    margin: 10px;
+    justify-content: flex-end;
+}
+
+.main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr 12fr;
+    grid-template-areas:
+    "header"
+    "main";
+}
