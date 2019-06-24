@@ -1,10 +1,10 @@
 <h1 class="heading">My List</h1>
 
 <div>
-    <%= @books.each do |book| %>
-    <p>
-        <%=link_to @book.title, book_path(book)%>
-        <%=link_to @book.author.name, author_path(book.author)%>
-    <%end%>
+    <% @books&.each do |book|%>
+    <p class="book-item">
+        <%= link_to book.title, book_path(book) %>
+        <%= link_to book.author.name, author_path(book.author) %>
     </p>
+    <%end%>
 </div>

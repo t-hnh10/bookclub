@@ -1,5 +1,14 @@
 <h1 class="heading"><%=@book.title%></h1>
+
 <p><%=@book.author.name%></p>
 <p><%=@book.genre%></p>
+
+<% if user_signed_in? %>
+    <%if  @can_add %>
+        <p class="link book-item"> <%= link_to 'Add to my list', add_book_to_list_path(:id => @book)%></p>
+    <%else%>
+        <p class="link book-item"> <%= link_to 'Remove from my list', @book, method: "delete"%></p>
+    <%end%>
+<%end%>
 
 <p><%=link_to 'Back', :back%>
