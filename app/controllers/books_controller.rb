@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     end
 
     def add
-        @book = Book.find(params[:id])
+        book = Book.find(params[:id])
         current_user.books.push(book)
         if current_user.save
             redirect_to book_list_items_path
