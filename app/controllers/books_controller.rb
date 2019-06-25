@@ -12,6 +12,16 @@ class BooksController < ApplicationController
         @book = Book.new
     end
 
+    def create
+        author = Author.create_author(params[:book][:first_name], params[:book][:last_name])
+        book = Book.create_book(params[:book][:title], author, params[:book][:genre])
+        BookListItem.create_book_list_item(current_user, book)
+    rescue
+        flash[:alert] = "Ooops! There was a problem adding that book"
+    ensure
+        redirect_to book_list_items_path
+    end
+    
     def add
         book = Book.find(params[:id])
 
