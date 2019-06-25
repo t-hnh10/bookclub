@@ -1,0 +1,19 @@
+<%=form_with model: @book do |form|%>
+    <p>
+        <%=label(:title, 'Title')%>
+        <%= form.text_field :title, required: true, minlength: 1%>
+    </p>
+    <p>
+        <%=label(:genre, 'Genre')%>
+        <%= form.text_field :genre%>
+    </p>
+        <p>Author</p>
+        <p>   
+        <%=label(:first_name, 'First Name')%>
+        <%= form.text_field :first_name%>
+        <%=label(:last_name, 'Last Name')%>
+        <%= form.text_field :last_name, required: true, minlength: 1%>
+    </p>
+
+    <%= form.submit "Add book", class: "button"%>
+<%end%>
