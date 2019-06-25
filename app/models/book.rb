@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :author
   has_many :book_list_items
+  has_many :reviews
 
   def self.ordered_by_author_and_title
     books = []
@@ -11,6 +12,11 @@ class Book < ApplicationRecord
   end
 
   def self.find_book(title, author_last_name)
+    belongs_to :author
+    has_many :book_list_items
+    has_many :reviews
+    
+    
     book = nil
     books = Book.where("LOWER(title) = ?", title.downcase.strip)
     if (books)

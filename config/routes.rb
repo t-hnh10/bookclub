@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+  get 'reviews/create'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "books#index"
@@ -15,4 +17,6 @@ Rails.application.routes.draw do
   get "/mylist/:id/edit", to: "book_list_items#edit", as: "edit_book_list_item"
   put "/mylist/:id", to: "book_list_items#update"
   patch "/mylist/:id", to: "book_list_items#update", as: "book_list_item"
+  get "/reviews/new", to: "reviews#new", as: "new_review"
+  post "reviews", to: "reviews#create"
 end

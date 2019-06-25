@@ -5,13 +5,27 @@
 
 <% if user_signed_in? %>
     <%if  @can_add %>
-        <p class="link book-item"> <%= link_to 'Add to my list', add_book_to_list_path(:id => @book)%></p>
+      <p class="link book-item"> <%= link_to 'Add to my list', add_book_to_list_path(:id => @book)%></p>
     <%else%>
-        <p class="link book-item"> <%= link_to 'Remove from my list', @book, method: "delete"%></p>
+      <p class="link book-item"> <%= link_to 'Remove from my list', @book, method: "delete"%></p>
     <%end%>
     <p>
-        <%= link_to "Edit book", edit_book_list_item_path(id: @book.id) %>
+      <%= link_to "Edit book", edit_book_list_item_path(id: @book.id) %>
+      <%= link_to 'Add a review', new_review_path(book: @book)%>
     </p>
 <%end%>
+
+<div>
+ <h1>Reviews</h1>
+ <%if @reviews%>
+   <%@reviews.each do |review|%>
+     <div>
+      <p class="rating"><%= "Rating: #{review.rating}"%></p>
+      <p><%= review.user.email%></p>
+      <p><%= review.comment %></p>
+     </div>
+   <%end%>
+ <%end%>
+</div>
 
 <p><%=link_to 'Back', :back%>
