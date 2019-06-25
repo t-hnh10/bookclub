@@ -9,6 +9,9 @@
     <%else%>
         <p class="link book-item"> <%= link_to 'Remove from my list', @book, method: "delete"%></p>
     <%end%>
+    <p>
+        <%= link_to "Edit book", edit_book_list_item_path(id: @book.id) %>
+    </p>
 <%end%>
 
 <p><%=link_to 'Back', :back%>

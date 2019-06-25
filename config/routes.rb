@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   get "/authors", to: "authors#index", as: "authors"
   get "/authors/:id", to: "authors#show", as: "author"
   get "/mylist", to: "book_list_items#index", as: "book_list_items"
+  get "/mylist/:id/edit", to: "book_list_items#edit", as: "edit_book_list_item"
+  put "/mylist/:id", to: "book_list_items#update"
+  patch "/mylist/:id", to: "book_list_items#update", as: "book_list_item"
 end

@@ -15,4 +15,11 @@ class BookListItemsController < ApplicationController
     #     BookListItem.where(book_id: params[:book_id], user_id: current_user.id).first.destroy
     #     redirect_to book_list_items_path
     # end
+
+    def edit
+        @book_list_item = BookListItem.find(BookListItem.book_list_item_id(current_user,params[:id]))
+    end
+
+    def update
+    end
 end
