@@ -21,5 +21,23 @@ class BookListItemsController < ApplicationController
     end
 
     def update
+        book_list_item = BookListItem.find(params[:id])
+        available_for_trade = params[:book_list_item][:for_trade]
+
+        # If available_for_trade is "1" set for_trade = true
+        if available_for_trade = "1"
+            book_list_item.for_trade = true
+        else
+        # but if available_for_trade is "0" set for_trade = false
+            book_list_item.for_trade = false
+        end
+
+        if book_list_item.save
+            flash[:alert] = "Your changes have been saved"
+        else
+            flash[:alert] = "There was an error saving your changes"
+        end
+
+        redirect_to book_path(book_list_item.book.id)
     end
 end
