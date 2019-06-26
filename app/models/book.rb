@@ -39,11 +39,7 @@ class Book < ApplicationRecord
     return book
   end
 
-  def create
-    author = Author.create_author(params[:book][:first_name], params[:book][:last_name])
-    book = Book.create_book(params[:book][:title], author, params[:book][:genre])
-    BookListItem.create_book_list_item(current_user, book)
-
-      redirect_to book_list_items_path
+  def author_name
+    return "#{author.first_name} #{author.last_name}"
   end
 end
