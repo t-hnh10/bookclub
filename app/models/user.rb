@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :reviews
 
+  validates :username, uniqueness: true
+
   def name
     return username ? username : email
   end
