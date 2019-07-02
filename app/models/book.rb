@@ -2,6 +2,7 @@ class Book < ApplicationRecord
   belongs_to :author
   has_many :book_list_items
   has_many :reviews
+  has_many :users, through: :book_list_items
 
   validates :title, presence: true
   validates :genre, inclusion: { in: ["Romance", "SciFi", "Drama"]}
