@@ -1,5 +1,9 @@
 <h1 class="heading"><%=@book.title%></h1>
 
+<p class="book-item">
+  <%= image_tag @book.cover, width: 120 %>
+</p>
+
 <p><%=@book.author.name%></p>
 <p><%=@book.genre%></p>
 
@@ -42,7 +46,5 @@
     <% end %>
   </ul>
 </div>
-
-
 
 <p><%=link_to 'Back', :back %></p>

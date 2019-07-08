@@ -24,6 +24,8 @@ class BooksController < ApplicationController
         else
             render "new"
         end
+
+        @book.cover.attach(params[:book][:cover])
     end
     
     def add
