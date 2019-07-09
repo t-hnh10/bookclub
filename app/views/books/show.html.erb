@@ -1,14 +1,22 @@
 <h1 class="heading"><%=@book.title%></h1>
 
-<p class="book-item">
-  <%= image_tag @book.cover, width: 120 %>
-</p>
+<% if @book.cover.attached? %>
+  <p class="book-item">
+    <%= image_tag @book.cover, width: 120 %>
+  </p>
+<% end %>
 
 <p><%=@book.author.name%></p>
 <p><%=@book.genre%></p>
+<% if @book.price %>
+  <p class="list-item">
+  <%= number_to_currency @book.price %>
+  <%= link_to "Buy now", new_order_path(book_id: @book.id) %>
+  </p>
+<% end %>
 
 <% if user_signed_in? %>
-    <%if  @can_add %>
+    <%if @can_add %>
       <p class="link book-item"> <%= link_to 'Add to my list', add_book_to_list_path(:id => @book)%></p>
     <%else%>
       <p class="link book-item"> <%= link_to 'Remove from my list', @book, method: "delete"%></p>

@@ -32,10 +32,10 @@ class Book < ApplicationRecord
     return book
   end
 
-  def self.create_book(title, author, genre)
+  def self.create_book(title, author, genre, price)
     book = Book.find_book(title, author.last_name)
     if(!book)
-      book = Book.new(title: title, genre: genre, author_id: author.id)
+      book = Book.new(title: title, genre: genre, author_id: author.id, price: price)
       book.save
     end
     return book
